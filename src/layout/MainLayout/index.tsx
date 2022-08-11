@@ -19,7 +19,7 @@ import { SET_MENU } from 'store/actions';
 import { IconChevronRight } from '@tabler/icons';
 
 // styles
-const Main = styled('main', { shouldForwardProp: (prop: any) => prop !== 'open' })(
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }: any) => ({
     ...theme.typography.mainContent,
     ...(!open && {
