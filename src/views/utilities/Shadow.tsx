@@ -15,12 +15,12 @@ const ShadowBox = ({ shadow }:any) => (
     <Card sx={{ mb: 3, boxShadow: shadow }}>
         <Box
             sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                py: 4.5,
-                bgcolor: 'primary.light',
-                color: 'grey.800'
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              py: 4.5,
+              bgcolor: 'primary.light',
+              color: 'grey.800',
             }}
         >
             <Box sx={{ color: 'inherit' }}>boxShadow: {shadow}</Box>
@@ -29,7 +29,7 @@ const ShadowBox = ({ shadow }:any) => (
 );
 
 ShadowBox.propTypes = {
-    shadow: PropTypes.string.isRequired
+  shadow: PropTypes.string.isRequired,
 };
 
 // ============================|| UTILITIES SHADOW ||============================ //

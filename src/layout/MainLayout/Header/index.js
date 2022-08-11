@@ -16,18 +16,18 @@ import { IconMenu2 } from '@tabler/icons';
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
 const Header = ({ handleLeftDrawerToggle }) => {
-    const theme = useTheme();
+  const theme = useTheme();
 
-    return (
+  return (
         <>
             {/* logo & toggler button */}
             <Box
                 sx={{
-                    width: 228,
-                    display: 'flex',
-                    [theme.breakpoints.down('md')]: {
-                        width: 'auto'
-                    }
+                  width: 228,
+                  display: 'flex',
+                  [theme.breakpoints.down('md')]: {
+                    width: 'auto',
+                  },
                 }}
             >
                 <Box component="span" sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
@@ -37,15 +37,15 @@ const Header = ({ handleLeftDrawerToggle }) => {
                     <Avatar
                         variant="rounded"
                         sx={{
-                            ...theme.typography.commonAvatar,
-                            ...theme.typography.mediumAvatar,
-                            transition: 'all .2s ease-in-out',
-                            background: theme.palette.secondary.light,
-                            color: theme.palette.secondary.dark,
-                            '&:hover': {
-                                background: theme.palette.secondary.dark,
-                                color: theme.palette.secondary.light
-                            }
+                          ...theme.typography.commonAvatar,
+                          ...theme.typography.mediumAvatar,
+                          transition: 'all .2s ease-in-out',
+                          background: theme.palette.secondary.light,
+                          color: theme.palette.secondary.dark,
+                          '&:hover': {
+                            background: theme.palette.secondary.dark,
+                            color: theme.palette.secondary.light,
+                          },
                         }}
                         onClick={handleLeftDrawerToggle}
                         color="inherit"
@@ -64,11 +64,11 @@ const Header = ({ handleLeftDrawerToggle }) => {
             <NotificationSection />
             <ProfileSection />
         </>
-    );
+  );
 };
 
 Header.propTypes = {
-    handleLeftDrawerToggle: PropTypes.func
+  handleLeftDrawerToggle: PropTypes.func,
 };
 
 export default Header;

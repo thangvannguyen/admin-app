@@ -4,21 +4,21 @@ import { useSelector } from 'react-redux';
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
-    Box,
-    Button,
-    Checkbox,
-    Divider,
-    FormControl,
-    FormControlLabel,
-    FormHelperText,
-    Grid,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    OutlinedInput,
-    Stack,
-    Typography,
-    useMediaQuery
+  Box,
+  Button,
+  Checkbox,
+  Divider,
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  Grid,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  Stack,
+  Typography,
+  useMediaQuery,
 } from '@mui/material';
 
 // third party
@@ -38,26 +38,26 @@ import Google from 'assets/images/icons/social-google.svg';
 // ============================|| FIREBASE - LOGIN ||============================ //
 
 const FirebaseLogin = ({ ...others }) => {
-    const theme:any = useTheme();
-    const scriptedRef = useScriptRef();
-    const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-    const customization = useSelector((state:any) => state.customization);
-    const [checked, setChecked] = useState(true);
+  const theme:any = useTheme();
+  const scriptedRef = useScriptRef();
+  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
+  const customization = useSelector((state:any) => state.customization);
+  const [checked, setChecked] = useState(true);
 
-    const googleHandler = async () => {
-        console.error('Login');
-    };
+  const googleHandler = async () => {
+    console.error('Login');
+  };
 
-    const [showPassword, setShowPassword] = useState(false);
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
-    const handleMouseDownPassword = (event:any) => {
-        event.preventDefault();
-    };
+  const handleMouseDownPassword = (event:any) => {
+    event.preventDefault();
+  };
 
-    return (
+  return (
         <>
             <Grid container direction="column" justifyContent="center" spacing={2}>
                 <Grid item xs={12}>
@@ -69,9 +69,9 @@ const FirebaseLogin = ({ ...others }) => {
                             size="large"
                             variant="outlined"
                             sx={{
-                                color: 'grey.700',
-                                backgroundColor: theme.palette.grey[50],
-                                borderColor: theme.palette.grey[100]
+                              color: 'grey.700',
+                              backgroundColor: theme.palette.grey[50],
+                              borderColor: theme.palette.grey[100],
                             }}
                         >
                             <Box sx={{ mr: { xs: 1, sm: 2, width: 20 } }}>
@@ -84,8 +84,8 @@ const FirebaseLogin = ({ ...others }) => {
                 <Grid item xs={12}>
                     <Box
                         sx={{
-                            alignItems: 'center',
-                            display: 'flex'
+                          alignItems: 'center',
+                          display: 'flex',
                         }}
                     >
                         <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
@@ -93,14 +93,14 @@ const FirebaseLogin = ({ ...others }) => {
                         <Button
                             variant="outlined"
                             sx={{
-                                cursor: 'unset',
-                                m: 2,
-                                py: 0.5,
-                                px: 7,
-                                borderColor: `${theme.palette.grey[100]} !important`,
-                                color: `${theme.palette.grey[900]}!important`,
-                                fontWeight: 500,
-                                borderRadius: `${customization.borderRadius}px`
+                              cursor: 'unset',
+                              m: 2,
+                              py: 0.5,
+                              px: 7,
+                              borderColor: `${theme.palette.grey[100]} !important`,
+                              color: `${theme.palette.grey[900]}!important`,
+                              fontWeight: 500,
+                              borderRadius: `${customization.borderRadius}px`,
                             }}
                             disableRipple
                             disabled
@@ -120,28 +120,28 @@ const FirebaseLogin = ({ ...others }) => {
 
             <Formik
                 initialValues={{
-                    email: 'info@codedthemes.com',
-                    password: '123456',
-                    submit: null
+                  email: 'info@codedthemes.com',
+                  password: '123456',
+                  submit: null,
                 }}
                 validationSchema={Yup.object().shape({
-                    email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-                    password: Yup.string().max(255).required('Password is required')
+                  email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
+                  password: Yup.string().max(255).required('Password is required'),
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-                    try {
-                        if (scriptedRef.current) {
-                            setStatus({ success: true });
-                            setSubmitting(false);
-                        }
-                    } catch (err:any) {
-                        console.error(err);
-                        if (scriptedRef.current) {
-                            setStatus({ success: false });
-                            setErrors({ submit: err.message });
-                            setSubmitting(false);
-                        }
+                  try {
+                    if (scriptedRef.current) {
+                      setStatus({ success: true });
+                      setSubmitting(false);
                     }
+                  } catch (err:any) {
+                    console.error(err);
+                    if (scriptedRef.current) {
+                      setStatus({ success: false });
+                      setErrors({ submit: err.message });
+                      setSubmitting(false);
+                    }
+                  }
                 }}
             >
                 {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
@@ -241,7 +241,7 @@ const FirebaseLogin = ({ ...others }) => {
                 )}
             </Formik>
         </>
-    );
+  );
 };
 
 export default FirebaseLogin;

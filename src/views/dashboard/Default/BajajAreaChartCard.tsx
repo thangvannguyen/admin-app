@@ -15,24 +15,24 @@ import chartData from './chart-data/bajaj-area-chart';
 // ===========================|| DASHBOARD DEFAULT - BAJAJ AREA CHART CARD ||=========================== //
 
 const BajajAreaChartCard = () => {
-    const theme:any = useTheme();
-    const customization = useSelector((state:any) => state.customization);
-    const { navType } = customization;
+  const theme:any = useTheme();
+  const customization = useSelector((state:any) => state.customization);
+  const { navType } = customization;
 
-    const orangeDark = theme.palette.secondary[800];
+  const orangeDark = theme.palette.secondary[800];
 
-    useEffect(() => {
-        const newSupportChart = {
-            ...chartData.options,
-            colors: [orangeDark],
-            tooltip: {
-                theme: 'light'
-            }
-        };
-        ApexCharts.exec(`support-chart`, 'updateOptions', newSupportChart);
-    }, [navType, orangeDark]);
+  useEffect(() => {
+    const newSupportChart = {
+      ...chartData.options,
+      colors: [orangeDark],
+      tooltip: {
+        theme: 'light',
+      },
+    };
+    ApexCharts.exec('support-chart', 'updateOptions', newSupportChart);
+  }, [navType, orangeDark]);
 
-    return (
+  return (
         <Card sx={{ bgcolor: 'secondary.light' }}>
             <Grid container sx={{ p: 2, pb: 0, color: '#fff' }}>
                 <Grid item xs={12}>
@@ -57,7 +57,7 @@ const BajajAreaChartCard = () => {
             </Grid>
             {/* <Chart {...chartData} /> */}
         </Card>
-    );
+  );
 };
 
 export default BajajAreaChartCard;

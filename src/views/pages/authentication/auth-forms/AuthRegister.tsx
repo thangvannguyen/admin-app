@@ -5,21 +5,21 @@ import { useSelector } from 'react-redux';
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
-    Box,
-    Button,
-    Checkbox,
-    Divider,
-    FormControl,
-    FormControlLabel,
-    FormHelperText,
-    Grid,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    OutlinedInput,
-    TextField,
-    Typography,
-    useMediaQuery
+  Box,
+  Button,
+  Checkbox,
+  Divider,
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  Grid,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  TextField,
+  Typography,
+  useMediaQuery,
 } from '@mui/material';
 
 // third party
@@ -39,39 +39,39 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
 const FirebaseRegister = ({ ...others }) => {
-    const theme:any = useTheme();
-    const scriptedRef = useScriptRef();
-    const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-    const customization = useSelector((state:any) => state.customization);
-    const [showPassword, setShowPassword] = useState(false);
-    const [checked, setChecked] = useState(true);
+  const theme:any = useTheme();
+  const scriptedRef = useScriptRef();
+  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
+  const customization = useSelector((state:any) => state.customization);
+  const [showPassword, setShowPassword] = useState(false);
+  const [checked, setChecked] = useState(true);
 
-    const [strength, setStrength] = useState(0);
-    const [level, setLevel] = useState<any>();
+  const [strength, setStrength] = useState(0);
+  const [level, setLevel] = useState<any>();
 
-    const googleHandler = async () => {
-        console.error('Register');
-    };
+  const googleHandler = async () => {
+    console.error('Register');
+  };
 
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
-    const handleMouseDownPassword = (event:any) => {
-        event.preventDefault();
-    };
+  const handleMouseDownPassword = (event:any) => {
+    event.preventDefault();
+  };
 
-    const changePassword = (value:any) => {
-        const temp:any = strengthIndicator(value);
-        setStrength(temp);
-        setLevel(strengthColor(temp));
-    };
+  const changePassword = (value:any) => {
+    const temp:any = strengthIndicator(value);
+    setStrength(temp);
+    setLevel(strengthColor(temp));
+  };
 
-    useEffect(() => {
-        changePassword('123456');
-    }, []);
+  useEffect(() => {
+    changePassword('123456');
+  }, []);
 
-    return (
+  return (
         <>
             <Grid container direction="column" justifyContent="center" spacing={2}>
                 <Grid item xs={12}>
@@ -82,9 +82,9 @@ const FirebaseRegister = ({ ...others }) => {
                             onClick={googleHandler}
                             size="large"
                             sx={{
-                                color: 'grey.700',
-                                backgroundColor: theme.palette.grey[50],
-                                borderColor: theme.palette.grey[100]
+                              color: 'grey.700',
+                              backgroundColor: theme.palette.grey[50],
+                              borderColor: theme.palette.grey[100],
                             }}
                         >
                             <Box sx={{ mr: { xs: 1, sm: 2, width: 20 } }}>
@@ -100,14 +100,14 @@ const FirebaseRegister = ({ ...others }) => {
                         <Button
                             variant="outlined"
                             sx={{
-                                cursor: 'unset',
-                                m: 2,
-                                py: 0.5,
-                                px: 7,
-                                borderColor: `${theme.palette.grey[100]} !important`,
-                                color: `${theme.palette.grey[900]}!important`,
-                                fontWeight: 500,
-                                borderRadius: `${customization.borderRadius}px`
+                              cursor: 'unset',
+                              m: 2,
+                              py: 0.5,
+                              px: 7,
+                              borderColor: `${theme.palette.grey[100]} !important`,
+                              color: `${theme.palette.grey[900]}!important`,
+                              fontWeight: 500,
+                              borderRadius: `${customization.borderRadius}px`,
                             }}
                             disableRipple
                             disabled
@@ -126,28 +126,28 @@ const FirebaseRegister = ({ ...others }) => {
 
             <Formik
                 initialValues={{
-                    email: '',
-                    password: '',
-                    submit: null
+                  email: '',
+                  password: '',
+                  submit: null,
                 }}
                 validationSchema={Yup.object().shape({
-                    email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-                    password: Yup.string().max(255).required('Password is required')
+                  email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
+                  password: Yup.string().max(255).required('Password is required'),
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-                    try {
-                        if (scriptedRef.current) {
-                            setStatus({ success: true });
-                            setSubmitting(false);
-                        }
-                    } catch (err:any) {
-                        console.error(err);
-                        if (scriptedRef.current) {
-                            setStatus({ success: false });
-                            setErrors({ submit: err.message });
-                            setSubmitting(false);
-                        }
+                  try {
+                    if (scriptedRef.current) {
+                      setStatus({ success: true });
+                      setSubmitting(false);
                     }
+                  } catch (err:any) {
+                    console.error(err);
+                    if (scriptedRef.current) {
+                      setStatus({ success: false });
+                      setErrors({ submit: err.message });
+                      setSubmitting(false);
+                    }
+                  }
                 }}
             >
                 {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
@@ -208,8 +208,8 @@ const FirebaseRegister = ({ ...others }) => {
                                 label="Password"
                                 onBlur={handleBlur}
                                 onChange={(e) => {
-                                    handleChange(e);
-                                    changePassword(e.target.value);
+                                  handleChange(e);
+                                  changePassword(e.target.value);
                                 }}
                                 endAdornment={
                                     <InputAdornment position="end">
@@ -300,7 +300,7 @@ const FirebaseRegister = ({ ...others }) => {
                 )}
             </Formik>
         </>
-    );
+  );
 };
 
 export default FirebaseRegister;

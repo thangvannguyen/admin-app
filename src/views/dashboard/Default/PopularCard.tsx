@@ -20,19 +20,19 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 // ==============================|| DASHBOARD DEFAULT - POPULAR CARD ||============================== //
 
 const PopularCard = ({ isLoading }:any) => {
-    const theme:any = useTheme();
+  const theme:any = useTheme();
 
-    const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
-    const handleClick = (event:any) => {
-        setAnchorEl(event.currentTarget);
-    };
+  const handleClick = (event:any) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    return (
+  return (
         <>
             {isLoading ? (
                 <SkeletonPopularCard />
@@ -49,8 +49,8 @@ const PopularCard = ({ isLoading }:any) => {
                                         <MoreHorizOutlinedIcon
                                             fontSize="small"
                                             sx={{
-                                                color: theme.palette.primary[200],
-                                                cursor: 'pointer'
+                                              color: theme.palette.primary[200],
+                                              cursor: 'pointer',
                                             }}
                                             aria-controls="menu-popular-card"
                                             aria-haspopup="true"
@@ -64,12 +64,12 @@ const PopularCard = ({ isLoading }:any) => {
                                             onClose={handleClose}
                                             variant="selectedMenu"
                                             anchorOrigin={{
-                                                vertical: 'bottom',
-                                                horizontal: 'right'
+                                              vertical: 'bottom',
+                                              horizontal: 'right',
                                             }}
                                             transformOrigin={{
-                                                vertical: 'top',
-                                                horizontal: 'right'
+                                              vertical: 'top',
+                                              horizontal: 'right',
                                             }}
                                         >
                                             <MenuItem onClick={handleClose}> Today</MenuItem>
@@ -102,12 +102,12 @@ const PopularCard = ({ isLoading }:any) => {
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
-                                                                width: 16,
-                                                                height: 16,
-                                                                borderRadius: '5px',
-                                                                backgroundColor: theme.palette.success.light,
-                                                                color: theme.palette.success.dark,
-                                                                ml: 2
+                                                              width: 16,
+                                                              height: 16,
+                                                              borderRadius: '5px',
+                                                              backgroundColor: theme.palette.success.light,
+                                                              color: theme.palette.success.dark,
+                                                              ml: 2,
                                                             }}
                                                         >
                                                             <KeyboardArrowUpOutlinedIcon fontSize="small" color="inherit" />
@@ -143,12 +143,12 @@ const PopularCard = ({ isLoading }:any) => {
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
-                                                                width: 16,
-                                                                height: 16,
-                                                                borderRadius: '5px',
-                                                                backgroundColor: theme.palette.orange.light,
-                                                                color: theme.palette.orange.dark,
-                                                                marginLeft: 1.875
+                                                              width: 16,
+                                                              height: 16,
+                                                              borderRadius: '5px',
+                                                              backgroundColor: theme.palette.orange.light,
+                                                              color: theme.palette.orange.dark,
+                                                              marginLeft: 1.875,
                                                             }}
                                                         >
                                                             <KeyboardArrowDownOutlinedIcon fontSize="small" color="inherit" />
@@ -184,12 +184,12 @@ const PopularCard = ({ isLoading }:any) => {
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
-                                                                width: 16,
-                                                                height: 16,
-                                                                borderRadius: '5px',
-                                                                backgroundColor: theme.palette.success.light,
-                                                                color: theme.palette.success.dark,
-                                                                ml: 2
+                                                              width: 16,
+                                                              height: 16,
+                                                              borderRadius: '5px',
+                                                              backgroundColor: theme.palette.success.light,
+                                                              color: theme.palette.success.dark,
+                                                              ml: 2,
                                                             }}
                                                         >
                                                             <KeyboardArrowUpOutlinedIcon fontSize="small" color="inherit" />
@@ -225,12 +225,12 @@ const PopularCard = ({ isLoading }:any) => {
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
-                                                                width: 16,
-                                                                height: 16,
-                                                                borderRadius: '5px',
-                                                                backgroundColor: theme.palette.orange.light,
-                                                                color: theme.palette.orange.dark,
-                                                                ml: 2
+                                                              width: 16,
+                                                              height: 16,
+                                                              borderRadius: '5px',
+                                                              backgroundColor: theme.palette.orange.light,
+                                                              color: theme.palette.orange.dark,
+                                                              ml: 2,
                                                             }}
                                                         >
                                                             <KeyboardArrowDownOutlinedIcon fontSize="small" color="inherit" />
@@ -266,12 +266,12 @@ const PopularCard = ({ isLoading }:any) => {
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
-                                                                width: 16,
-                                                                height: 16,
-                                                                borderRadius: '5px',
-                                                                backgroundColor: theme.palette.orange.light,
-                                                                color: theme.palette.orange.dark,
-                                                                ml: 2
+                                                              width: 16,
+                                                              height: 16,
+                                                              borderRadius: '5px',
+                                                              backgroundColor: theme.palette.orange.light,
+                                                              color: theme.palette.orange.dark,
+                                                              ml: 2,
                                                             }}
                                                         >
                                                             <KeyboardArrowDownOutlinedIcon fontSize="small" color="inherit" />
@@ -299,11 +299,11 @@ const PopularCard = ({ isLoading }:any) => {
                 </MainCard>
             )}
         </>
-    );
+  );
 };
 
 PopularCard.propTypes = {
-    isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
 };
 
 export default PopularCard;

@@ -13,36 +13,36 @@ import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
 
 // styles
 const CardWrapper = styled(MainCard)(({ theme }) => ({
-    overflow: 'hidden',
-    position: 'relative',
-    '&:after': {
-        content: '""',
-        position: 'absolute',
-        width: 210,
-        height: 210,
-        background: `linear-gradient(210.04deg, ${theme.palette.warning.dark} -50.94%, rgba(144, 202, 249, 0) 83.49%)`,
-        borderRadius: '50%',
-        top: -30,
-        right: -180
-    },
-    '&:before': {
-        content: '""',
-        position: 'absolute',
-        width: 210,
-        height: 210,
-        background: `linear-gradient(140.9deg, ${theme.palette.warning.dark} -14.02%, rgba(144, 202, 249, 0) 70.50%)`,
-        borderRadius: '50%',
-        top: -160,
-        right: -130
-    }
+  overflow: 'hidden',
+  position: 'relative',
+  '&:after': {
+    content: '""',
+    position: 'absolute',
+    width: 210,
+    height: 210,
+    background: `linear-gradient(210.04deg, ${theme.palette.warning.dark} -50.94%, rgba(144, 202, 249, 0) 83.49%)`,
+    borderRadius: '50%',
+    top: -30,
+    right: -180,
+  },
+  '&:before': {
+    content: '""',
+    position: 'absolute',
+    width: 210,
+    height: 210,
+    background: `linear-gradient(140.9deg, ${theme.palette.warning.dark} -14.02%, rgba(144, 202, 249, 0) 70.50%)`,
+    borderRadius: '50%',
+    top: -160,
+    right: -130,
+  },
 }));
 
 // ==============================|| DASHBOARD - TOTAL INCOME LIGHT CARD ||============================== //
 
 const TotalIncomeLightCard = ({ isLoading }:any) => {
-    const theme:any = useTheme();
+  const theme:any = useTheme();
 
-    return (
+  return (
         <>
             {isLoading ? (
                 <TotalIncomeCard />
@@ -55,10 +55,10 @@ const TotalIncomeLightCard = ({ isLoading }:any) => {
                                     <Avatar
                                         variant="rounded"
                                         sx={{
-                                            ...theme.typography.commonAvatar,
-                                            ...theme.typography.largeAvatar,
-                                            backgroundColor: theme.palette.warning.light,
-                                            color: theme.palette.warning.dark
+                                          ...theme.typography.commonAvatar,
+                                          ...theme.typography.largeAvatar,
+                                          backgroundColor: theme.palette.warning.light,
+                                          color: theme.palette.warning.dark,
                                         }}
                                     >
                                         <StorefrontTwoToneIcon fontSize="inherit" />
@@ -66,17 +66,17 @@ const TotalIncomeLightCard = ({ isLoading }:any) => {
                                 </ListItemAvatar>
                                 <ListItemText
                                     sx={{
-                                        py: 0,
-                                        mt: 0.45,
-                                        mb: 0.45
+                                      py: 0,
+                                      mt: 0.45,
+                                      mb: 0.45,
                                     }}
                                     primary={<Typography variant="h4">$203k</Typography>}
                                     secondary={
                                         <Typography
                                             variant="subtitle2"
                                             sx={{
-                                                color: theme.palette.grey[500],
-                                                mt: 0.5
+                                              color: theme.palette.grey[500],
+                                              mt: 0.5,
                                             }}
                                         >
                                             Total Income
@@ -89,11 +89,11 @@ const TotalIncomeLightCard = ({ isLoading }:any) => {
                 </CardWrapper>
             )}
         </>
-    );
+  );
 };
 
 TotalIncomeLightCard.propTypes = {
-    isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
 };
 
 export default TotalIncomeLightCard;

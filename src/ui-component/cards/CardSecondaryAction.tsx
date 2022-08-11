@@ -8,9 +8,9 @@ import Avatar from '../extended/Avatar';
 // ==============================|| CARD SECONDARY ACTION ||============================== //
 
 const CardSecondaryAction = ({ title, link, icon }:any) => {
-    const theme:any = useTheme();
+  const theme:any = useTheme();
 
-    return (
+  return (
         <Tooltip title={title || 'Reference'} placement="left">
             <ButtonBase disableRipple>
                 {!icon && (
@@ -46,13 +46,13 @@ const CardSecondaryAction = ({ title, link, icon }:any) => {
                 )}
             </ButtonBase>
         </Tooltip>
-    );
+  );
 };
 
 CardSecondaryAction.propTypes = {
-    icon: PropTypes.node,
-    link: PropTypes.string,
-    title: PropTypes.string
+  icon: PropTypes.node,
+  link: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default CardSecondaryAction;

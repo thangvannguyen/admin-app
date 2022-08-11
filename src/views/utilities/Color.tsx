@@ -16,12 +16,12 @@ const ColorBox = ({ bgcolor, title, data, dark }:any) => (
         <Card sx={{ mb: 3 }}>
             <Box
                 sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    py: 4.5,
-                    bgcolor,
-                    color: dark ? 'grey.800' : '#ffffff'
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  py: 4.5,
+                  bgcolor,
+                  color: dark ? 'grey.800' : '#ffffff',
                 }}
             >
                 {title && (
@@ -48,10 +48,10 @@ const ColorBox = ({ bgcolor, title, data, dark }:any) => (
 );
 
 ColorBox.propTypes = {
-    bgcolor: PropTypes.string,
-    title: PropTypes.string,
-    data: PropTypes.object.isRequired,
-    dark: PropTypes.bool
+  bgcolor: PropTypes.string,
+  title: PropTypes.string,
+  data: PropTypes.object.isRequired,
+  dark: PropTypes.bool,
 };
 
 // ===============================|| UI COLOR ||=============================== //

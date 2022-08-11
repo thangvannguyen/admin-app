@@ -15,12 +15,12 @@ import { gridSpacing } from 'store/constant';
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
 const Dashboard = () => {
-    const [isLoading, setLoading] = useState(true);
-    useEffect(() => {
-        setLoading(false);
-    }, []);
+  const [isLoading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
-    return (
+  return (
         <Grid container spacing={gridSpacing}>
             <Grid item xs={12}>
                 <Grid container spacing={gridSpacing}>
@@ -53,7 +53,7 @@ const Dashboard = () => {
                 </Grid>
             </Grid>
         </Grid>
-    );
+  );
 };
 
 export default Dashboard;

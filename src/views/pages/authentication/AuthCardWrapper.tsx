@@ -11,12 +11,12 @@ import MainCard from 'ui-component/cards/MainCard';
 const AuthCardWrapper = ({ children, ...other }:any) => (
     <MainCard
         sx={{
-            maxWidth: { xs: 400, lg: 475 },
-            margin: { xs: 2.5, md: 3 },
-            '& > *': {
-                flexGrow: 1,
-                flexBasis: '50%'
-            }
+          maxWidth: { xs: 400, lg: 475 },
+          margin: { xs: 2.5, md: 3 },
+          '& > *': {
+            flexGrow: 1,
+            flexBasis: '50%',
+          },
         }}
         content={false}
         {...other}
@@ -26,7 +26,7 @@ const AuthCardWrapper = ({ children, ...other }:any) => (
 );
 
 AuthCardWrapper.propTypes = {
-    children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default AuthCardWrapper;

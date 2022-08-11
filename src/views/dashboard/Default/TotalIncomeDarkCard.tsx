@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 // material-ui
 import { styled, useTheme } from '@mui/material/styles';
 import { Avatar, Box, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
@@ -13,38 +12,38 @@ import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 
 // styles
 const CardWrapper = styled(MainCard)(({ theme }:any) => ({
-    backgroundColor: theme.palette.primary.dark,
-    color: theme.palette.primary.light,
-    overflow: 'hidden',
-    position: 'relative',
-    '&:after': {
-        content: '""',
-        position: 'absolute',
-        width: 210,
-        height: 210,
-        background: `linear-gradient(210.04deg, ${theme.palette.primary[200]} -50.94%, rgba(144, 202, 249, 0) 83.49%)`,
-        borderRadius: '50%',
-        top: -30,
-        right: -180
-    },
-    '&:before': {
-        content: '""',
-        position: 'absolute',
-        width: 210,
-        height: 210,
-        background: `linear-gradient(140.9deg, ${theme.palette.primary[200]} -14.02%, rgba(144, 202, 249, 0) 77.58%)`,
-        borderRadius: '50%',
-        top: -160,
-        right: -130
-    }
+  backgroundColor: theme.palette.primary.dark,
+  color: theme.palette.primary.light,
+  overflow: 'hidden',
+  position: 'relative',
+  '&:after': {
+    content: '""',
+    position: 'absolute',
+    width: 210,
+    height: 210,
+    background: `linear-gradient(210.04deg, ${theme.palette.primary[200]} -50.94%, rgba(144, 202, 249, 0) 83.49%)`,
+    borderRadius: '50%',
+    top: -30,
+    right: -180,
+  },
+  '&:before': {
+    content: '""',
+    position: 'absolute',
+    width: 210,
+    height: 210,
+    background: `linear-gradient(140.9deg, ${theme.palette.primary[200]} -14.02%, rgba(144, 202, 249, 0) 77.58%)`,
+    borderRadius: '50%',
+    top: -160,
+    right: -130,
+  },
 }));
 
 // ==============================|| DASHBOARD - TOTAL INCOME DARK CARD ||============================== //
 
 const TotalIncomeDarkCard = ({ isLoading }:any) => {
-    const theme:any = useTheme();
+  const theme:any = useTheme();
 
-    return (
+  return (
         <>
             {isLoading ? (
                 <TotalIncomeCard />
@@ -57,10 +56,10 @@ const TotalIncomeDarkCard = ({ isLoading }:any) => {
                                     <Avatar
                                         variant="rounded"
                                         sx={{
-                                            ...theme.typography.commonAvatar,
-                                            ...theme.typography.largeAvatar,
-                                            backgroundColor: theme.palette.primary[800],
-                                            color: '#fff'
+                                          ...theme.typography.commonAvatar,
+                                          ...theme.typography.largeAvatar,
+                                          backgroundColor: theme.palette.primary[800],
+                                          color: '#fff',
                                         }}
                                     >
                                         <TableChartOutlinedIcon fontSize="inherit" />
@@ -68,9 +67,9 @@ const TotalIncomeDarkCard = ({ isLoading }:any) => {
                                 </ListItemAvatar>
                                 <ListItemText
                                     sx={{
-                                        py: 0,
-                                        mt: 0.45,
-                                        mb: 0.45
+                                      py: 0,
+                                      mt: 0.45,
+                                      mb: 0.45,
                                     }}
                                     primary={
                                         <Typography variant="h4" sx={{ color: '#fff' }}>
@@ -89,11 +88,11 @@ const TotalIncomeDarkCard = ({ isLoading }:any) => {
                 </CardWrapper>
             )}
         </>
-    );
+  );
 };
 
 TotalIncomeDarkCard.propTypes = {
-    isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
 };
 
 export default TotalIncomeDarkCard;

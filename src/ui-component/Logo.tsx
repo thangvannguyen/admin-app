@@ -12,9 +12,9 @@ import { useTheme } from '@mui/material/styles';
 // ==============================|| LOGO SVG ||============================== //
 
 const Logo = () => {
-    const theme = useTheme();
+  const theme = useTheme();
 
-    return (
+  return (
         /**
          * if you want to use image instead of svg uncomment following, and comment out <svg> element.
          *
@@ -63,7 +63,7 @@ const Logo = () => {
                 fill={theme.palette.primary.main}
             />
         </svg>
-    );
+  );
 };
 
 export default Logo;

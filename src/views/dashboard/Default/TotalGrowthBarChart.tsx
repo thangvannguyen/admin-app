@@ -19,76 +19,76 @@ import { gridSpacing } from 'store/constant';
 import chartData from './chart-data/total-growth-bar-chart';
 
 const status = [
-    {
-        value: 'today',
-        label: 'Today'
-    },
-    {
-        value: 'month',
-        label: 'This Month'
-    },
-    {
-        value: 'year',
-        label: 'This Year'
-    }
+  {
+    value: 'today',
+    label: 'Today',
+  },
+  {
+    value: 'month',
+    label: 'This Month',
+  },
+  {
+    value: 'year',
+    label: 'This Year',
+  },
 ];
 
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
 const TotalGrowthBarChart = ({ isLoading }:any) => {
-    const [value, setValue] = useState('today');
-    const theme:any = useTheme();
-    const customization = useSelector((state:any) => state.customization);
+  const [value, setValue] = useState('today');
+  const theme:any = useTheme();
+  const customization = useSelector((state:any) => state.customization);
 
-    const { navType } = customization;
-    const { primary } = theme.palette.text;
-    const darkLight = theme.palette.dark.light;
-    const grey200 = theme.palette.grey[200];
-    const grey500 = theme.palette.grey[500];
+  const { navType } = customization;
+  const { primary } = theme.palette.text;
+  const darkLight = theme.palette.dark.light;
+  const grey200 = theme.palette.grey[200];
+  const grey500 = theme.palette.grey[500];
 
-    const primary200 = theme.palette.primary[200];
-    const primaryDark = theme.palette.primary.dark;
-    const secondaryMain = theme.palette.secondary.main;
-    const secondaryLight = theme.palette.secondary.light;
+  const primary200 = theme.palette.primary[200];
+  const primaryDark = theme.palette.primary.dark;
+  const secondaryMain = theme.palette.secondary.main;
+  const secondaryLight = theme.palette.secondary.light;
 
-    useEffect(() => {
-        const newChartData = {
-            ...chartData.options,
-            colors: [primary200, primaryDark, secondaryMain, secondaryLight],
-            xaxis: {
-                labels: {
-                    style: {
-                        colors: [primary, primary, primary, primary, primary, primary, primary, primary, primary, primary, primary, primary]
-                    }
-                }
-            },
-            yaxis: {
-                labels: {
-                    style: {
-                        colors: [primary]
-                    }
-                }
-            },
-            grid: {
-                borderColor: grey200
-            },
-            tooltip: {
-                theme: 'light'
-            },
-            legend: {
-                labels: {
-                    colors: grey500
-                }
-            }
-        };
+  useEffect(() => {
+    const newChartData = {
+      ...chartData.options,
+      colors: [primary200, primaryDark, secondaryMain, secondaryLight],
+      xaxis: {
+        labels: {
+          style: {
+            colors: [primary, primary, primary, primary, primary, primary, primary, primary, primary, primary, primary, primary],
+          },
+        },
+      },
+      yaxis: {
+        labels: {
+          style: {
+            colors: [primary],
+          },
+        },
+      },
+      grid: {
+        borderColor: grey200,
+      },
+      tooltip: {
+        theme: 'light',
+      },
+      legend: {
+        labels: {
+          colors: grey500,
+        },
+      },
+    };
 
-        // do not load chart when loading
-        if (!isLoading) {
-            ApexCharts.exec(`bar-chart`, 'updateOptions', newChartData);
-        }
-    }, [navType, primary200, primaryDark, secondaryMain, secondaryLight, primary, darkLight, grey200, isLoading, grey500]);
+    // do not load chart when loading
+    if (!isLoading) {
+      ApexCharts.exec('bar-chart', 'updateOptions', newChartData);
+    }
+  }, [navType, primary200, primaryDark, secondaryMain, secondaryLight, primary, darkLight, grey200, isLoading, grey500]);
 
-    return (
+  return (
         <>
             {isLoading ? (
                 <SkeletonTotalGrowthBarChart />
@@ -130,11 +130,11 @@ const TotalGrowthBarChart = ({ isLoading }:any) => {
                 </MainCard>
             )}
         </>
-    );
+  );
 };
 
 TotalGrowthBarChart.propTypes = {
-    isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
 };
 
 export default TotalGrowthBarChart;

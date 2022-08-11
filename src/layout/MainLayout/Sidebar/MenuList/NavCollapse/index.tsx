@@ -16,56 +16,56 @@ import { IconChevronDown, IconChevronUp } from '@tabler/icons';
 // ==============================|| SIDEBAR MENU LIST COLLAPSE ITEMS ||============================== //
 
 const NavCollapse = ({ menu, level }:any) => {
-    const theme:any = useTheme();
-    const customization = useSelector((state:any) => state?.customization);
+  const theme:any = useTheme();
+  const customization = useSelector((state:any) => state?.customization);
 
-    const [open, setOpen] = useState(false);
-    const [selected, setSelected] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState(null);
 
-    const handleClick = () => {
-        setOpen(!open);
-        setSelected(!selected ? menu.id : null);
-    };
+  const handleClick = () => {
+    setOpen(!open);
+    setSelected(!selected ? menu.id : null);
+  };
 
-    // menu collapse & item
-    const menus = menu.children?.map((item:any) => {
-        switch (item.type) {
-            case 'collapse':
-                return <NavCollapse key={item.id} menu={item} level={level + 1} />;
-            case 'item':
-                return <NavItem key={item.id} item={item} level={level + 1} />;
-            default:
-                return (
+  // menu collapse & item
+  const menus = menu.children?.map((item:any) => {
+    switch (item.type) {
+      case 'collapse':
+        return <NavCollapse key={item.id} menu={item} level={level + 1} />;
+      case 'item':
+        return <NavItem key={item.id} item={item} level={level + 1} />;
+      default:
+        return (
                     <Typography key={item.id} variant="h6" color="error" align="center">
                         Menu Items Error
                     </Typography>
-                );
-        }
-    });
+        );
+    }
+  });
 
-    const Icon = menu.icon;
-    const menuIcon = menu.icon ? (
+  const Icon = menu.icon;
+  const menuIcon = menu.icon ? (
         <Icon strokeWidth={1.5} size="1.3rem" style={{ marginTop: 'auto', marginBottom: 'auto' }} />
-    ) : (
+  ) : (
         <FiberManualRecordIcon
             sx={{
-                width: selected === menu.id ? 8 : 6,
-                height: selected === menu.id ? 8 : 6
+              width: selected === menu.id ? 8 : 6,
+              height: selected === menu.id ? 8 : 6,
             }}
             fontSize={level > 0 ? 'inherit' : 'medium'}
         />
-    );
+  );
 
-    return (
+  return (
         <>
             <ListItemButton
                 sx={{
-                    borderRadius: `${customization.borderRadius}px`,
-                    mb: 0.5,
-                    alignItems: 'flex-start',
-                    backgroundColor: level > 1 ? 'transparent !important' : 'inherit',
-                    py: level > 1 ? 1 : 1.25,
-                    pl: `${level * 24}px`
+                  borderRadius: `${customization.borderRadius}px`,
+                  mb: 0.5,
+                  alignItems: 'flex-start',
+                  backgroundColor: level > 1 ? 'transparent !important' : 'inherit',
+                  py: level > 1 ? 1 : 1.25,
+                  pl: `${level * 24}px`,
                 }}
                 selected={selected === menu.id}
                 onClick={handleClick}
@@ -96,29 +96,29 @@ const NavCollapse = ({ menu, level }:any) => {
                     component="div"
                     disablePadding
                     sx={{
-                        position: 'relative',
-                        '&:after': {
-                            content: "''",
-                            position: 'absolute',
-                            left: '32px',
-                            top: 0,
-                            height: '100%',
-                            width: '1px',
-                            opacity: 1,
-                            background: theme.palette.primary.light
-                        }
+                      position: 'relative',
+                      '&:after': {
+                        content: "''",
+                        position: 'absolute',
+                        left: '32px',
+                        top: 0,
+                        height: '100%',
+                        width: '1px',
+                        opacity: 1,
+                        background: theme.palette.primary.light,
+                      },
                     }}
                 >
                     {menus}
                 </List>
             </Collapse>
         </>
-    );
+  );
 };
 
 NavCollapse.propTypes = {
-    menu: PropTypes.object,
-    level: PropTypes.number
+  menu: PropTypes.object,
+  level: PropTypes.number,
 };
 
 export default NavCollapse;

@@ -16,10 +16,10 @@ import AuthFooter from 'ui-component/cards/AuthFooter';
 // ===============================|| AUTH3 - REGISTER ||=============================== //
 
 const Register = () => {
-    const theme = useTheme();
-    const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
+  const theme = useTheme();
+  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
 
-    return (
+  return (
         <AuthWrapper1>
             <Grid container direction="column" justifyContent="flex-end" sx={{ minHeight: '100vh' }}>
                 <Grid item xs={12}>
@@ -87,7 +87,7 @@ const Register = () => {
                 </Grid>
             </Grid>
         </AuthWrapper1>
-    );
+  );
 };
 
 export default Register;

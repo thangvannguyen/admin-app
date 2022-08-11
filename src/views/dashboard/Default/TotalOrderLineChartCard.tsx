@@ -20,58 +20,58 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const CardWrapper = styled(MainCard)(({ theme }:any) => ({
-    backgroundColor: theme.palette.primary.dark,
-    color: '#fff',
-    overflow: 'hidden',
+  backgroundColor: theme.palette.primary.dark,
+  color: '#fff',
+  overflow: 'hidden',
+  position: 'relative',
+  '&>div': {
     position: 'relative',
-    '&>div': {
-        position: 'relative',
-        zIndex: 5
+    zIndex: 5,
+  },
+  '&:after': {
+    content: '""',
+    position: 'absolute',
+    width: 210,
+    height: 210,
+    background: theme.palette.primary[800],
+    borderRadius: '50%',
+    zIndex: 1,
+    top: -85,
+    right: -95,
+    [theme.breakpoints.down('sm')]: {
+      top: -105,
+      right: -140,
     },
-    '&:after': {
-        content: '""',
-        position: 'absolute',
-        width: 210,
-        height: 210,
-        background: theme.palette.primary[800],
-        borderRadius: '50%',
-        zIndex: 1,
-        top: -85,
-        right: -95,
-        [theme.breakpoints.down('sm')]: {
-            top: -105,
-            right: -140
-        }
+  },
+  '&:before': {
+    content: '""',
+    position: 'absolute',
+    zIndex: 1,
+    width: 210,
+    height: 210,
+    background: theme.palette.primary[800],
+    borderRadius: '50%',
+    top: -125,
+    right: -15,
+    opacity: 0.5,
+    [theme.breakpoints.down('sm')]: {
+      top: -155,
+      right: -70,
     },
-    '&:before': {
-        content: '""',
-        position: 'absolute',
-        zIndex: 1,
-        width: 210,
-        height: 210,
-        background: theme.palette.primary[800],
-        borderRadius: '50%',
-        top: -125,
-        right: -15,
-        opacity: 0.5,
-        [theme.breakpoints.down('sm')]: {
-            top: -155,
-            right: -70
-        }
-    }
+  },
 }));
 
 // ==============================|| DASHBOARD - TOTAL ORDER LINE CHART CARD ||============================== //
 
 const TotalOrderLineChartCard = ({ isLoading }:any) => {
-    const theme:any = useTheme();
+  const theme:any = useTheme();
 
-    const [timeValue, setTimeValue] = useState(false);
-    const handleChangeTime = (event:any, newValue:any) => {
-        setTimeValue(newValue);
-    };
+  const [timeValue, setTimeValue] = useState(false);
+  const handleChangeTime = (event:any, newValue:any) => {
+    setTimeValue(newValue);
+  };
 
-    return (
+  return (
         <>
             {isLoading ? (
                 <SkeletonTotalOrderCard />
@@ -85,11 +85,11 @@ const TotalOrderLineChartCard = ({ isLoading }:any) => {
                                         <Avatar
                                             variant="rounded"
                                             sx={{
-                                                ...theme.typography.commonAvatar,
-                                                ...theme.typography.largeAvatar,
-                                                backgroundColor: theme.palette.primary[800],
-                                                color: '#fff',
-                                                mt: 1
+                                              ...theme.typography.commonAvatar,
+                                              ...theme.typography.largeAvatar,
+                                              backgroundColor: theme.palette.primary[800],
+                                              color: '#fff',
+                                              mt: 1,
                                             }}
                                         >
                                             <LocalMallOutlinedIcon fontSize="inherit" />
@@ -135,10 +135,10 @@ const TotalOrderLineChartCard = ({ isLoading }:any) => {
                                             <Grid item>
                                                 <Avatar
                                                     sx={{
-                                                        ...theme.typography.smallAvatar,
-                                                        cursor: 'pointer',
-                                                        backgroundColor: theme.palette.primary[200],
-                                                        color: theme.palette.primary.dark
+                                                      ...theme.typography.smallAvatar,
+                                                      cursor: 'pointer',
+                                                      backgroundColor: theme.palette.primary[200],
+                                                      color: theme.palette.primary.dark,
                                                     }}
                                                 >
                                                     <ArrowDownwardIcon fontSize="inherit" sx={{ transform: 'rotate3d(1, 1, 1, 45deg)' }} />
@@ -147,9 +147,9 @@ const TotalOrderLineChartCard = ({ isLoading }:any) => {
                                             <Grid item xs={12}>
                                                 <Typography
                                                     sx={{
-                                                        fontSize: '1rem',
-                                                        fontWeight: 500,
-                                                        color: theme.palette.primary[200]
+                                                      fontSize: '1rem',
+                                                      fontWeight: 500,
+                                                      color: theme.palette.primary[200],
                                                     }}
                                                 >
                                                     Total Order
@@ -167,11 +167,11 @@ const TotalOrderLineChartCard = ({ isLoading }:any) => {
                 </CardWrapper>
             )}
         </>
-    );
+  );
 };
 
 TotalOrderLineChartCard.propTypes = {
-    isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
 };
 
 export default TotalOrderLineChartCard;
