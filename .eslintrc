@@ -1,9 +1,9 @@
 {
-    "husky": {
-        "hooks": {
-          "pre-commit": "npm run lint && npm run test"
-        }
-    },
+    // "husky": {
+    //     "hooks": {
+    //       "pre-commit": "npm run lint && npm run test"
+    //     }
+    // },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaFeatures": {
@@ -20,9 +20,10 @@
       "plugin:@typescript-eslint/recommended",
       "plugin:jest/recommended",
       "prettier",
-      "prettier/react",
-      "prettier/@typescript-eslint",
-      "plugin:prettier/recommended"
+    //   "prettier/react",
+    //   "prettier/@typescript-eslint",
+      "plugin:prettier/recommended",
+      "plugin:import/recommended"
     ],
     "plugins": ["react", "react-hooks", "@typescript-eslint", "jest"],
     "env": {
@@ -44,15 +45,15 @@
           "endOfLine": "auto"
         }
       ],
-      "import/extensions": [
-        "error",
-        "ignorePackages",
-        {
-          "js": "never",
-          "jsx": "never",
-          "ts": "never",
-          "tsx": "never"
-        }
-      ]
+    //   "import/extensions": [
+    //     "error",
+    //     "ignorePackages",
+    //     {
+    //       "js": "never",
+    //       "jsx": "never",
+    //       "ts": "never",
+    //       "tsx": "never"
+    //     }
+    //   ]
     }
   }
