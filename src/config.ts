@@ -1,5 +1,5 @@
 const config = {
-  basename: '/free',
+  basename: '',
   defaultPath: '/dashboard/default',
   fontFamily: "'Roboto', sans-serif",
   borderRadius: 12,
