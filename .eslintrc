@@ -14,6 +14,13 @@
       "sourceType": "module",
       "project": "./tsconfig.json"
     },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
+    },
     "extends": [
       "airbnb-typescript",
       "airbnb/hooks",
