@@ -20,7 +20,8 @@ import { IconChevronRight } from '@tabler/icons';
 
 // styles
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }: any) => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ({ theme, open = true }: { theme: any, open: boolean }) => ({
     ...theme.typography.mainContent,
     ...(!open && {
       borderBottomLeftRadius: 0,
@@ -71,7 +72,7 @@ const MainLayout = () => {
   const matchDownMd: any = useMediaQuery(theme.breakpoints.down('lg'));
 
   // Handle left drawer
-  const leftDrawerOpened: any = useSelector((state: any) => state.customization.opened);
+  const leftDrawerOpened: boolean = useSelector((state: any) => state.customization.opened);
   const dispatch = useDispatch();
   const handleLeftDrawerToggle = () => {
     dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
@@ -105,7 +106,7 @@ const MainLayout = () => {
       <Sidebar drawerOpen={leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
 
       {/* main content open={leftDrawerOpened} */}
-      <Main theme={theme}> 
+      <Main theme={theme} open={leftDrawerOpened}> 
         {' '}
         {/* open={leftDrawerOpened} */}
         {/* breadcrumb */}

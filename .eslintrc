@@ -14,13 +14,6 @@
       "sourceType": "module",
       "project": "./tsconfig.json"
     },
-    "settings": {
-      "import/resolver": {
-        "node": {
-          "extensions": [".js", ".jsx", ".ts", ".tsx"]
-        }
-      }
-    },
     "extends": [
       "airbnb-typescript",
       "airbnb/hooks",
@@ -62,5 +55,13 @@
     //       "tsx": "never"
     //     }
     //   ]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"],
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      },
     }
   }
