@@ -59,6 +59,11 @@ export default function themePalette(theme:any) {
       800: theme.colors?.darkBackground,
       900: theme.colors?.darkPaper,
     },
+    yellowMain:{
+      light: theme.colors?.yellowMainLight,
+      main: theme.colors?.yellowMain,
+      dark: theme.colors?.yellowMainDark,
+    },
     text: {
       primary: theme.darkTextPrimary,
       secondary: theme.darkTextSecondary,

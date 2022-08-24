@@ -33,7 +33,7 @@ $orangeDark: #d84315;
 
 // warning
 $warningLight: #fff8e1;
-$warningMain: #ffe57f;
+$warningMain: #F0B71C;
 $warningDark: #ffc107;
 
 // grey
@@ -75,6 +75,11 @@ $darkTextTitle: #d7dcec;
 $darkTextPrimary: #bdc8f0;
 $darkTextSecondary: #8492c4;
 
+
+// yellowMainColor
+$yellowMainLight: #FFF9E8;
+$yellowMain: #ffe57f;
+$yellowMainDark: #F0B71C;
 // ==============================|| JAVASCRIPT ||============================== //
 
 :export {
@@ -154,4 +159,9 @@ $darkTextSecondary: #8492c4;
     darkSecondaryDark: $darkSecondaryDark;
     darkSecondary200: $darkSecondary200;
     darkSecondary800: $darkSecondary800;
+
+    // yellowMain
+    yellowMainLight: $yellowMainLight;
+    yellowMain: $yellowMain;
+    yellowMainDark: $yellowMainDark;
 }

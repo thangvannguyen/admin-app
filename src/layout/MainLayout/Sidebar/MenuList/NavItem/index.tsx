@@ -10,8 +10,6 @@ import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography, u
 // project imports
 import { MENU_OPEN, SET_MENU } from 'store/actions';
 
-// assets
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 // ==============================|| SIDEBAR MENU LIST ITEMS ||============================== //
 
@@ -22,30 +20,18 @@ const NavItem = ({ item, level }:any) => {
   const matchesSM = useMediaQuery(theme.breakpoints.down('lg'));
 
   const Icon = item.icon;
-  const itemIcon = item?.icon ? (
-        <Icon stroke={1.5} size="1.3rem" />
-  ) : (
-        <FiberManualRecordIcon
-            sx={{
-              width: customization.isOpen.findIndex((id:any) => id === item?.id) > -1 ? 8 : 6,
-              height: customization.isOpen.findIndex((id:any) => id === item?.id) > -1 ? 8 : 6,
-            }}
-            fontSize={level > 0 ? 'inherit' : 'medium'}
-        />
-  );
+  const itemIcon = item?.icon ? (<Icon stroke={1.5} size="1.3rem" />) : <></>;
 
   let itemTarget = '_self';
   if (item.target) {
     itemTarget = '_blank';
   }
-
   let listItemProps:any = {
     component: forwardRef((props, ref:any) => <Link ref={ref} {...props} to={item.url} target={itemTarget} />),
   };
   if (item?.external) {
     listItemProps = { component: 'a', href: item.url, target: itemTarget };
   }
-
   const itemHandler = (id:any) => {
     dispatch({ type: MENU_OPEN, id });
     if (matchesSM) dispatch({ type: SET_MENU, opened: false });
@@ -69,16 +55,16 @@ const NavItem = ({ item, level }:any) => {
             disabled={item.disabled}
             sx={{
               borderRadius: `${customization.borderRadius}px`,
-              mb: 0.5,
+              mb: 0.7,
               alignItems: 'flex-start',
-              backgroundColor: level > 1 ? 'transparent !important' : 'inherit',
-              py: level > 1 ? 1 : 1.25,
-              pl: `${level * 24}px`,
+              backgroundColor: level > 0 ? 'transparent !important' : 'inherit',
+              py: level > 0 ? 1 : 1.25,
+              pl: level > 0 ? `${level * 2.8}rem` : '0.5rem',
             }}
             selected={customization.isOpen.findIndex((id:any) => id === item.id) > -1}
             onClick={() => itemHandler(item.id)}
         >
-            <ListItemIcon sx={{ my: 'auto', minWidth: !item?.icon ? 18 : 36 }}>{itemIcon}</ListItemIcon>
+            <ListItemIcon sx={{ my: 'auto', minWidth: item?.icon ? 36 : 0 }}>{itemIcon}</ListItemIcon>
             <ListItemText
                 primary={
                     <Typography variant={customization.isOpen.findIndex((id:any) => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">

@@ -1,8 +1,8 @@
 const config = {
   basename: '',
-  defaultPath: '/dashboard/default',
+  defaultPath: '/system-management/user-group',
   fontFamily: "'Roboto', sans-serif",
-  borderRadius: 12,
+  borderRadius: 6,
 };
 
 export default config;
