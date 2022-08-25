@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
+import { Avatar, Box, Chip, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
 
 // project imports
 import { MENU_OPEN, SET_MENU } from 'store/actions';
@@ -13,10 +13,10 @@ import { MENU_OPEN, SET_MENU } from 'store/actions';
 
 // ==============================|| SIDEBAR MENU LIST ITEMS ||============================== //
 
-const NavItem = ({ item, level }:any) => {
-  const theme:any = useTheme();
+const NavItem = ({ item, level }: any) => {
+  const theme: any = useTheme();
   const dispatch = useDispatch();
-  const customization = useSelector((state:any) => state?.customization);
+  const customization = useSelector((state: any) => state?.customization);
   const matchesSM = useMediaQuery(theme.breakpoints.down('lg'));
 
   const Icon = item.icon;
@@ -26,13 +26,13 @@ const NavItem = ({ item, level }:any) => {
   if (item.target) {
     itemTarget = '_blank';
   }
-  let listItemProps:any = {
-    component: forwardRef((props, ref:any) => <Link ref={ref} {...props} to={item.url} target={itemTarget} />),
+  let listItemProps: any = {
+    component: forwardRef((props, ref: any) => <Link ref={ref} {...props} to={item.url} target={itemTarget} />),
   };
   if (item?.external) {
     listItemProps = { component: 'a', href: item.url, target: itemTarget };
   }
-  const itemHandler = (id:any) => {
+  const itemHandler = (id: any) => {
     dispatch({ type: MENU_OPEN, id });
     if (matchesSM) dispatch({ type: SET_MENU, opened: false });
   };
@@ -50,6 +50,7 @@ const NavItem = ({ item, level }:any) => {
     }, []);
 
   return (
+    <Box sx={{ ...(customization.isOpen.findIndex((id: any) => id === item.id) > -1 && level < 1  && { borderRight: `0.4rem solid ${theme.palette.yellowMain.dark}` }) }}>
         <ListItemButton
             {...listItemProps}
             disabled={item.disabled}
@@ -60,14 +61,15 @@ const NavItem = ({ item, level }:any) => {
               backgroundColor: level > 0 ? 'transparent !important' : 'inherit',
               py: level > 0 ? 1 : 1.25,
               pl: level > 0 ? `${level * 2.8}rem` : '0.5rem',
+              mr: 0.6,
             }}
-            selected={customization.isOpen.findIndex((id:any) => id === item.id) > -1}
+            selected={customization.isOpen.findIndex((id: any) => id === item.id) > -1}
             onClick={() => itemHandler(item.id)}
         >
             <ListItemIcon sx={{ my: 'auto', minWidth: item?.icon ? 36 : 0 }}>{itemIcon}</ListItemIcon>
             <ListItemText
                 primary={
-                    <Typography variant={customization.isOpen.findIndex((id:any) => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">
+                    <Typography variant={customization.isOpen.findIndex((id: any) => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">
                         {item.title}
                     </Typography>
                 }
@@ -89,6 +91,7 @@ const NavItem = ({ item, level }:any) => {
                 />
             )}
         </ListItemButton>
+    </Box>
   );
 };
 

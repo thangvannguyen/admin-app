@@ -89,7 +89,7 @@ const NavCollapse = ({ menu, level }: any) => {
             alignItems: 'flex-start',
             py: level > 0 ? 1 : 1.25,
             pl: level > 0 ? `${level * 3}rem` : '0.5rem',
-            mr: 0.4,
+            mr: 0.6,
           }}
           selected={selected === menu.id}
           onClick={handleClick}
