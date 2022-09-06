@@ -6,13 +6,13 @@ import Loadable from 'ui-component/Loadable';
 
 
 // system Management routing
-const Management = Loadable(lazy(() => import('views/pages/management')));
-const UserGroup = Loadable(lazy(() => import('views/pages/management/user-group')));
-const UserManagement = Loadable(lazy(() => import('views/pages/management/user-management')));
+const Management = Loadable(lazy(() => import('views/pages/systemManagement')));
+const UserGroups = Loadable(lazy(() => import('views/pages/systemManagement/userGroups')));
+const UserManagement = Loadable(lazy(() => import('views/pages/systemManagement/userManagement')));
 
 
-const QuestionBank = Loadable(lazy(()=>import('views/pages/question-bank')));
-const SurveyList = Loadable(lazy(() => import('views/pages/survey-list')));
+const QuestionBank = Loadable(lazy(()=>import('views/pages/questionBank')));
+const SurveyList = Loadable(lazy(() => import('views/pages/surveyList')));
 const Report = Loadable(lazy(()=>import('views/pages/report')));
 const Support = Loadable(lazy(()=>import('views/pages/support')));
 
@@ -31,7 +31,7 @@ const MainRoutes = {
       children: [
         {
           path: 'user-group',
-          element: <UserGroup />,
+          element: <UserGroups />,
         },
         {
           path: 'user-management',

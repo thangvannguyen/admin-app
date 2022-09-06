@@ -5,7 +5,7 @@ export default function componentStyleOverrides(theme:any) {
       styleOverrides: {
         root: {
           fontWeight: 500,
-          borderRadius: '4px',
+          borderRadius: `${theme?.customization?.borderRadius}px`,
         },
       },
     },
@@ -169,9 +169,20 @@ export default function componentStyleOverrides(theme:any) {
     MuiChip: {
       styleOverrides: {
         root: {
-          '&.MuiChip-deletable .MuiChip-deleteIcon': {
-            color: 'inherit',
+          borderRadius: `${theme?.customization?.borderRadius}px`,
+          padding: '5px 12px',
+          minWidth: '140px',
+          '&.MuiChipActive' : {
+            backgroundColor: theme.colors?.successLight,
+            color: theme.colors?.successDark,
           },
+          '&.MuiChipPause' : {
+            backgroundColor: theme.colors?.errorLight,
+            color: theme.colors?.errorDark,
+          },
+          // '&.MuiChip-deletable .MuiChip-deleteIcon': {
+          //   color: 'inherit',
+          // },
         },
       },
     },

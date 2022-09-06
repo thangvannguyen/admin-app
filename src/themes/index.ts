@@ -19,9 +19,10 @@ export const theme = (customization:any) => {
   const themeOption = {
     colors: color,
     heading: color.grey900,
+    headerTable: color.grey100,
     paper: color.paper,
     backgroundDefault: color.paper,
-    background: color.primaryLight,
+    background: color.grey100,
     darkTextPrimary: color.grey700,
     darkTextSecondary: color.grey500,
     textDark: color.grey900,
