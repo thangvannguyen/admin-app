@@ -29,6 +29,7 @@ export const theme = (customization:any) => {
     menuSelected: color.yellowMainDark,
     menuSelectedBack: color.yellowMainLight,
     divider: color.grey200,
+    yellowMain: color.yellowMainDark,
     customization,
   };
 

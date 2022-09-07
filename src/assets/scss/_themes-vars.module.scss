@@ -87,6 +87,9 @@ $darkTextSecondary: #8492c4;
 $yellowMainLight: #FFF9E8;
 $yellowMain: #ffe57f;
 $yellowMainDark: #F0B71C;
+
+// custom color
+$darkColor: #434243;
 // ==============================|| JAVASCRIPT ||============================== //
 
 :export {
@@ -171,4 +174,6 @@ $yellowMainDark: #F0B71C;
     yellowMainLight: $yellowMainLight;
     yellowMain: $yellowMain;
     yellowMainDark: $yellowMainDark;
+
+    darkColor: $darkColor;
 }

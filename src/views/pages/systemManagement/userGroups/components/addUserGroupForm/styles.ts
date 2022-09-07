@@ -28,8 +28,12 @@ const useStyles = makeStyles((theme: any) => ({
   },
   hierarchicalTitle: {
     margin: '0',
+    marginTop: '12px',
     fontWeight: 700,
     fontSize: '18px',
+    color: '#000000',
+
+    
     // [ theme.breakpoints.down(600) ]: {
     //   fontSize: '20px',
     // },

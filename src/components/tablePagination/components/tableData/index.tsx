@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Chip, IconButton, TableBody, TableCell, TableRow, Tooltip } from '@mui/material';
 import { checkStatus } from 'utils/checkStatus';
-import LabelChip from 'ui-component/labelChip';
+import LabelChip from 'components/labelChip';
 
 const Z = ({ columns, rows }: any) => {
   return (

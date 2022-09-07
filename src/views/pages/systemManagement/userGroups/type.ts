@@ -17,4 +17,9 @@ export interface Column {
   format?: (value: number) => string;
   render?: any
 }
+export interface IFormInput {
+  valueSearch: string;
+  valueStatus: string;
+
+}
 

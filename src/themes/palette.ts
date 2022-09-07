@@ -64,6 +64,9 @@ export default function themePalette(theme:any) {
       main: theme.colors?.yellowMain,
       dark: theme.colors?.yellowMainDark,
     },
+    darkColor: {
+      main: theme.colors?.darkColor,
+    },
     tableHeader:{
       light: theme.colors?.darkTextPrimary,
     },

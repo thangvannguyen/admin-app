@@ -30,7 +30,11 @@ const useStyles = makeStyles((theme: any) => ({
       justifyContent: 'space-between',
     },
   },
-
+  flexBoxSpaceBetween: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
 
   marginBottomInputLabel: {
     marginBottom: '0.6rem',
@@ -102,12 +106,12 @@ const useStyles = makeStyles((theme: any) => ({
   
   },
   findButton: {
-    backgroundColor: '#434243',
+    backgroundColor: theme.palette.darkColor.main,
     width: '100%',
     height: '50px',
     '&:hover': {
       opacity: 0.9,
-      backgroundColor: '#434243',
+      backgroundColor: theme.palette.darkColor.main,
     },
     [ theme.breakpoints.down(600) ]: {
       display: 'flex',

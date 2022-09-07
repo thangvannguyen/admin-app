@@ -13,6 +13,7 @@ export const initialState = {
 
 // ==============================|| CUSTOMIZATION REDUCER ||============================== //
 
+// eslint-disable-next-line @typescript-eslint/default-param-last
 const customizationReducer = (state = initialState, action:any) => {
   let id;
   switch (action.type) {
