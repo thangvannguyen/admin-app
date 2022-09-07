@@ -14,6 +14,7 @@ import { Box, Checkbox, FormControl, FormControlLabel, FormGroup, Grid, MenuItem
 import { Controller, useForm } from 'react-hook-form';
 import { IFormInput } from './type';
 import { yupResolver } from '@hookform/resolvers/yup';
+import ButtonPrimary from 'components/atoms/ButtonPrimary';
 
 
 
@@ -31,6 +32,8 @@ export interface AddUserGroupFormProps {
 
 const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormProps) => {
   const theme = useTheme();
+  console.log(theme);
+
   const classes = useStyles(theme);
 
   const handleClose = () => {
@@ -68,7 +71,7 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
             classes={{ paper: classes.dialog }}
             open={isOpenForm}
             onClose={handleClose}
-            maxWidth="md"
+            maxWidth="lg"
             fullWidth
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
@@ -79,11 +82,11 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
             </DialogTitle>
             <DialogContent>
                 <form onSubmit={handleSubmit(handleSubmitData)}>
-                    <Grid container spacing={1}>
+                    <Grid container spacing={3}>
                         <Grid item xs={12} md={3}>
-                            <Typography variant="h5" className={classes.marginBottomInputLabel}>
+                            <Title variant="h4" className={classes.inputLabel}>
                                 Mã nhóm
-                            </Typography>
+                            </Title>
                             <FormControl fullWidth>
                                 <Controller
                                     name="userGroupId"
@@ -107,9 +110,9 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                             </FormControl>
                         </Grid>
                         <Grid item xs={12} md={3} >
-                            <Typography variant="h5" className={classes.marginBottomInputLabel}>
+                            <Title variant="h4" className={classes.inputLabel}>
                                 Tên nhóm
-                            </Typography>
+                            </Title>
 
                             <FormControl fullWidth>
                                 <Controller
@@ -134,9 +137,9 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                             </FormControl>
                         </Grid>
                         <Grid item xs={12} md={3} >
-                            <Typography variant="h5" className={classes.marginBottomInputLabel}>
+                            <Title variant="h4" className={classes.inputLabel}>
                                 Trạng thái
-                            </Typography>
+                            </Title>
                             <FormControl className={classes.marginRightFormControl} fullWidth>
                                 <Controller
                                     name="valueStatus"
@@ -161,15 +164,15 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                         </Grid>
                     </Grid>
                     <Box>
-                        <Title variant="body1" className={classes.hierarchicalTitle}>Phân quyền</Title>
+                        <Title className={classes.hierarchicalTitle}>Phân quyền</Title>
                         <Grid container spacing={1} alignItems="center" mt={1} ml={1}>
-                            <Grid item md={3}>
-                                <Title >Quản lý nhóm người dùng</Title>
+                            <Grid item xs={12} md={3} >
+                                <Title  variant='h4' className={classes.fontWeightTitle}>Quản lý nhóm người dùng</Title>
                             </Grid>
-                            <Grid item >
+                            <Grid item xs={12} md={5}>
                                 <FormGroup row>
                                     <FormControlLabel
-                                        sx={{ alignItems: 'center' }}
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -179,6 +182,7 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                         label="Tất cả"
                                     />
                                     <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -188,6 +192,7 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                         label="Sủa"
                                     />
                                     <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -201,13 +206,13 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                         </Grid>
 
                         <Grid container spacing={1} alignItems="center" mt={1} ml={1}>
-                            <Grid item md={3}>
-                                <Title >Quản lý nhóm người dùng</Title>
+                            <Grid item xs={12} md={3}>
+                                <Title  variant='h4' className={classes.fontWeightTitle} >Quản lý người dùng</Title>
                             </Grid>
-                            <Grid item >
+                            <Grid item xs={12} md={5}>
                                 <FormGroup row>
                                     <FormControlLabel
-                                        sx={{ alignItems: 'center' }}
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -217,6 +222,7 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                         label="Tất cả"
                                     />
                                     <FormControlLabel
+                                    className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -226,6 +232,7 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                         label="Sủa"
                                     />
                                     <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -236,16 +243,29 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                     />
                                 </FormGroup>
                             </Grid>
+                            <Grid item md={2}>
+                              
+                                    <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
+                                        control={
+                                            <Checkbox
+                                                {...label}
+                                                defaultChecked
+                                                className={classes.root}
+                                            />}
+                                        label="Đồng bộ"
+                                    />
+                            </Grid>
                         </Grid>
 
                         <Grid container spacing={1} alignItems="center" mt={1} ml={1}>
-                            <Grid item md={3}>
-                                <Title >Quản lý người dùng</Title>
+                            <Grid item xs={12} md={3}>
+                                <Title variant='h4' className={classes.fontWeightTitle}>Ngân hàng câu hỏi</Title>
                             </Grid>
-                            <Grid item >
+                            <Grid item xs={12} md={5}>
                                 <FormGroup row>
                                     <FormControlLabel
-                                        sx={{ alignItems: 'center' }}
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -255,6 +275,7 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                         label="Tất cả"
                                     />
                                     <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -264,6 +285,7 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                         label="Sủa"
                                     />
                                     <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -274,16 +296,40 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                     />
                                 </FormGroup>
                             </Grid>
+                            <Grid item md={2}>
+                              
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                {...label}
+                                                defaultChecked
+                                                className={classes.root}
+                                            />}
+                                        label="Xuất Excel"
+                                    />
+                            </Grid>
+                            <Grid item md={2}>
+                              
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                {...label}
+                                                defaultChecked
+                                                className={classes.root}
+                                            />}
+                                        label="Đồng bộ"
+                                    />
+                            </Grid>
                         </Grid>
 
                         <Grid container spacing={1} alignItems="center" mt={1} ml={1}>
-                            <Grid item md={3}>
-                                <Title >Bài khảo sát</Title>
+                            <Grid item xs={12} md={3}>
+                                <Title  variant='h4' className={classes.fontWeightTitle}>Bài khảo sát</Title>
                             </Grid>
-                            <Grid item >
+                            <Grid item xs={12} md={5}>
                                 <FormGroup row>
                                     <FormControlLabel
-                                        sx={{ alignItems: 'center' }}
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -293,6 +339,7 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                         label="Tất cả"
                                     />
                                     <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -302,6 +349,7 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                         label="Sủa"
                                     />
                                     <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
@@ -312,41 +360,64 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
                                     />
                                 </FormGroup>
                             </Grid>
+                            <Grid item md={2} >
+                              
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                {...label}
+                                                defaultChecked
+                                                className={classes.root}
+                                            />}
+                                        label="Tạo bài khảo sát"
+                                    />
+                            </Grid>
                         </Grid>
-
                         <Grid container spacing={1} alignItems="center" mt={1} ml={1}>
-                            <Grid item md={3}>
-                                <Title >{}</Title>
+                            <Grid item xs={12} md={3} >
+                                <Title className={classes.fontWeightTitle}>{}</Title>
                             </Grid>
                             <Grid item >
                                 <FormGroup row>
                                     <FormControlLabel
-                                        sx={{ alignItems: 'center' }}
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
                                                 defaultChecked
                                                 className={classes.root}
                                             />}
-                                        label="Tất cả"
+                                        label="Sao chép bài Khảo sát"
                                     />
                                     <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
                                                 defaultChecked
                                                 className={classes.root}
                                             />}
-                                        label="Sủa"
+                                        label="Sao chép Link"
                                     />
                                     <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
                                         control={
                                             <Checkbox
                                                 {...label}
                                                 defaultChecked
                                                 className={classes.root}
                                             />}
-                                        label="Xem"
+                                        label="Xóa"
+                                    />
+                                    <FormControlLabel
+                                        className={classes.marginRightFormControlLabel}
+                                        control={
+                                            <Checkbox
+                                                {...label}
+                                                defaultChecked
+                                                className={classes.root}
+                                            />}
+                                        label="Khóa bài khảo sát"
                                     />
                                 </FormGroup>
                             </Grid>
@@ -357,11 +428,16 @@ const AddUserGroupForm = ({ isOpenForm = false, onOpenForm }: AddUserGroupFormPr
             </DialogContent>
 
 
-            <DialogActions>
-                <Button onClick={handleClose}>Disagree</Button>
-                <Button onClick={handleClose} autoFocus>
+            <DialogActions className={classes.wapperButton}>
+                <ButtonPrimary className={classes.closeButton}>
+                    Đóng
+                </ButtonPrimary >
+                <ButtonPrimary className={classes.saveButton}>
+                    Lưu
+                </ButtonPrimary >
+                {/* <Button onClick={handleClose} autoFocus>
                     Agree
-                </Button>
+                </Button> */}
             </DialogActions>
         </Dialog>
   );

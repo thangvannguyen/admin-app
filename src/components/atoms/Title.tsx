@@ -16,7 +16,7 @@ const Title = (
   }: Props) => {
 
   return (
-        <Typography variant = { variant} {...otherProps}>
+        <Typography variant = { variant} {...otherProps} sx={{ color: '#000000' }}>
             {children}
         </Typography>
   );
